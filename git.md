@@ -1,0 +1,64 @@
+# Git cheat sheet
+
+## Concepts
+
+1. Working area
+1. Index (staging area)
+1. Repository (permanent storage)
+1. Stash
+
+## Things to avoid always
+1. Never use submodules. Use nuget packages and repo instead.
+
+## Log and status
+* `git status -s`
+* `git log --oneline --graph -n 10`
+
+
+## Undo changes / resetting
+
+* Revert to previous commit, delete history: `git reset --hard`
+
+* Mixed reset will only update index to usntage files from index: `git reset`
+
+* Individual files, destructive
+```
+git reset menu.txt
+git checkout HEAD menu.txt
+```
+
+* Clean everything, reset everything, both tracked, untracked, ignored, including directories
+```
+git reset --hard
+git clean -f -x -d
+```
+
+## Branching
+* Create local branch from current branch: `git checkout -b <branchname>`
+* Push to repo first time after creating: `git push --set-upstream <origin> <branchname>`
+* Usually, `<origin> = origin`, but could be backup if I use backup repos
+## Merging branches
+
+* Cancel merge: `git merge --abort`
+
+## Tagging
+* Tag current commit on branch in work area: `git tag <tag-name>`
+I've never used annotated tags
+* Push tags to origin: `git push --tags`
+
+## Safekeeping
+* Stash everything: `git stash --include-untracked`
+  
+Note that stashes are only local. You need to set up a backup repo to store remotely, but that introduces complexity. See below.
+
+## Backup a local repository remotely
+IN PROGRESS
+* Mirror the remote repo to your Google drive disk or similar (see backup a remote repository locally)
+* Add as new remote under the name 'backup'
+* `git push --set-upstream backup <branchname>`
+ 
+  
+## Backup a remote repository locally
+* Set up the backup: `git clone --mirror <repo-url> <local-repo-dir>`
+* Update backup: `git remote update`
+
