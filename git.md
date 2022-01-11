@@ -64,3 +64,34 @@ IN PROGRESS
 * Set up the backup: `git clone --mirror <repo-url> <local-repo-dir>`
 * Update backup: `git remote update`
 
+## All the commands I will probably ever use
+
+### Central ones
+* add
+* branch
+* checkout (deprecate)
+* cherry-pick
+* clean
+* clone
+* commit
+* diff
+* fetch
+* init
+* log
+* merge
+* pull
+* push
+* rebase
+* reset
+* revert
+* stash
+* status
+* switch
+* tag
+
+### Others
+* config
+* remote
+* blame
+* show-branch
+
