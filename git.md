@@ -38,6 +38,7 @@ git clean -f -x -d
 * Switch between two latest branches: `git switch -`
 * Push to repo first time after creating: `git push --set-upstream <origin> <branchname>`
 * Usually, `<origin> = origin`, but could be backup if I use backup repos
+* List all branches local and remote: `git branch -a`
 ## Merging branches
 
 * Cancel merge: `git merge --abort`
