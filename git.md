@@ -95,3 +95,7 @@ IN PROGRESS
 * blame
 * show-branch
 
+## Git global aliases
+```
+git config --global alias.log1 'log --oneline --graph'
+```
