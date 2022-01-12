@@ -99,3 +99,8 @@ IN PROGRESS
 ```
 git config --global alias.log1 'log --oneline --graph'
 ```
+
+## List all existing aliases
+```
+git config --get-regexp alias
+```
