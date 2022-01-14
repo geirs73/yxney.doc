@@ -98,6 +98,7 @@ IN PROGRESS
 ## Git global aliases
 ```
 git config --global alias.log1 'log --oneline --graph'
+git config --global alias.status1 'status -b -s'
 ```
 
 ## List all existing aliases
