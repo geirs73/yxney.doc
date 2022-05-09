@@ -65,7 +65,7 @@ Typically a directory that is either on a shared disk with backup or to a cloud 
 
 Example:
 
-```pwsh
+```
 > cd <backupdirlocation>
 > git clone c:\Development\SomeProject Libraries-NPS.AssemblyLine --mirror
 > cd c:\Development\SomeProject
