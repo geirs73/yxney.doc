@@ -53,12 +53,26 @@ I've never used annotated tags
   
 Note that stashes are only local. You need to set up a backup repo to store remotely, but that introduces complexity. See below.
 
-## Backup a local repository remotely
-IN PROGRESS
+## Backup a local repository to a directory
+
+Typically a directory that is either on a shared disk with backup or to a cloud drive
+
 * Mirror the remote repo to your Google drive disk or similar (see backup a remote repository locally)
 * Add as new remote under the name 'backup'
-* `git push --set-upstream backup <branchname>`
- 
+* Use `git push -u` a.k.a. `git push --set-upstream` to set whatever branch to track a backup remote repo branch
+* Now you can have ad-hoc commits that will never ever show up if you squash merge them into one of the origin-tracked repos before pushing upwards to origin.
+* Or you can just commit everything if there is not too much intermediate small checkins. Depends.
+
+Example:
+
+```pwsh
+> cd <backupdirlocation>
+> git clone c:\Development\SomeProject Libraries-NPS.AssemblyLine --mirror
+> cd c:\Development\SomeProject
+> git remote add backup <backupdirlocation>
+> git switch -c scratch/somebackupbranch
+> git push -u backup scratch/somebackupbranch
+```
   
 ## Backup a remote repository locally
 * Set up the backup: `git clone --mirror <repo-url> <local-repo-dir>`
