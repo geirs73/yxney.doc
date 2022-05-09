@@ -61,7 +61,7 @@ Typically a directory that is either on a shared disk with backup or to a cloud 
 * Add as new remote under the name 'backup'
 * Use `git push -u` a.k.a. `git push --set-upstream` to set whatever branch to track a backup remote repo branch
 * Now you can have ad-hoc commits that will never ever show up if you squash merge them into one of the origin-tracked repos before pushing upwards to origin.
-* Or you can just commit everything if there is not too much intermediate small checkins. Depends.
+* Try to avoid having multiple remotes for a specific branch. Rather create scratch branches that only tracks the backup location, then squash merge. At least if you want to avoid long commit histories and keep mess away from your main repo.
 
 Example:
 
