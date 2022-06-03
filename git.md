@@ -67,7 +67,7 @@ Example:
 
 ```
 > cd <backupdirlocation>
-> git clone c:\Development\SomeProject Libraries-NPS.AssemblyLine --mirror
+> git clone c:\Development\SomeProject SomeProject --mirror
 > cd c:\Development\SomeProject
 > git remote add backup <backupdirlocation>
 > git switch -c scratch/somebackupbranch
