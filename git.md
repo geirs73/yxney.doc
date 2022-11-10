@@ -102,6 +102,7 @@ Example:
 * status
 * switch
 * tag
+* worktree
 
 ### Others
 * config
