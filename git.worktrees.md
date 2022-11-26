@@ -2,14 +2,7 @@
 
 I like my worktrees in my development directory like this:
 
-```text
-directory-with-git-repo
-  |--main
-  |--release
-  |--feature 
-      |--feature1
-      |--feature2
-```
+![git worktree figure](git.worktrees.drawio.png)
 
 The following works at any repo. It works by creating an empty detached branc named `root`. Remove all local files (but not the .git dir of course)
 
