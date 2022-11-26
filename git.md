@@ -8,49 +8,104 @@
 1. Stash
 
 ## Things to avoid always
-1. Never use submodules. Use nuget packages and repo instead.
+
+1. Never use submodules. Use packages, packagemanagers and repo instead.
 
 ## Log and status
-* `git status -s`
-* `git log --oneline --graph -n 10`
 
+```text
+> git status -s
+> git log --oneline --graph -n 10
+```
 
 ## Undo changes / resetting
 
-* Revert to previous commit, delete history: `git reset --hard`
+Revert to previous commit, delete history:
 
-* Mixed reset will only update index to usntage files from index: `git reset`
-
-* Individual files, destructive
-```
-git reset menu.txt
-git checkout HEAD menu.txt
+```text
+> git reset --hard
 ```
 
-* Clean everything, reset everything, both tracked, untracked, ignored, including directories
+Mixed reset will only update index to usntage files from index:
+
+```text
+> git reset
 ```
-git reset --hard
-git clean -f -x -d
+
+Reset individual files, destructive:
+
+```text
+> git reset menu.txt
+> git checkout HEAD menu.txt
+```
+
+Clean everything, reset everything, both tracked, untracked, ignored, including directories:
+
+```text
+> git reset --hard
+> git clean -f -x -d
 ```
 
 ## Branching
-* Create local branch from current branch: `git switch -c <branchname>`
-* Switch between two latest branches: `git switch -`
-* Push to repo first time after creating: `git push --set-upstream <origin> <branchname>`
-* Usually, `<origin> = origin`, but could be backup if I use backup repos
-* List all branches local and remote: `git branch -a`
+
+Create local branch from current branch:
+
+```text
+> git switch -c <branchname>
+```
+
+Switch between two latest branches:
+
+```text
+> git switch -
+```
+
+Push to repo first time after creating:
+
+```text
+> git push -u <origin> <branchname>
+```
+
+Usually, `<origin> = origin`, but could be backup if I use backup repos
+
+List all branches local and remote:
+
+```text
+> git branch -a
+```
+
 ## Merging branches
 
-* Cancel merge: `git merge --abort`
+Cancel merge:
+
+```text
+> git merge --abort
+```
 
 ## Tagging
-* Tag current commit on branch in work area: `git tag <tag-name>`
-I've never used annotated tags
-* Push tags to origin: `git push --tags`
 
-## Safekeeping
-* Stash everything: `git stash --include-untracked`
-  
+Tag current commit on branch in work area:
+
+```text
+> git tag <tag-name>
+```
+
+I've never used annotated tags
+
+Push tags to origin:
+
+```text
+> git push --tags
+```
+
+## Stashing
+
+Stash everything, e.g. before a pull.
+
+```text
+> git stash --include-untracked
+```
+
 Note that stashes are only local. You need to set up a backup repo to store remotely, but that introduces complexity. See below.
 
 ## Backup a local repository to a directory
@@ -63,9 +118,9 @@ Typically a directory that is either on a shared disk with backup or to a cloud 
 * Now you can have ad-hoc commits that will never ever show up if you squash merge them into one of the origin-tracked repos before pushing upwards to origin.
 * Try to avoid having multiple remotes for a specific branch. Rather create scratch branches that only tracks the backup location, then squash merge. At least if you want to avoid long commit histories and keep mess away from your main repo.
 
-Example:
+Example (Windows cmd/powershell):
 
-```
+```text
 > cd <backupdirlocation>
 > git clone c:\Development\SomeProject SomeProject --mirror
 > cd c:\Development\SomeProject
@@ -75,48 +130,57 @@ Example:
 ```
   
 ## Backup a remote repository locally
-* Set up the backup: `git clone --mirror <repo-url> <local-repo-dir>`
-* Update backup: `git remote update`
 
-## All the commands I will probably ever use
+Set up the backup:
 
-### Central ones
-* add
-* branch
-* checkout (deprecate)
-* cherry-pick
-* clean
-* clone
-* commit
-* diff
-* fetch
-* init
-* log
-* merge
-* pull
-* push
-* rebase
-* reset
-* revert
-* stash
-* status
-* switch
-* tag
-* worktree
+```text
+> git clone --mirror <repo-url> <local-repo-dir>
+```
 
-### Others
-* config
-* remote
-* blame
-* show-branch
+Update backup:
+
+```text
+> git remote update
+```
+
+## My most used commands
+
+Here are the central ones, categorized:
+
+| Setup, repository <br> and status | Branch work | File work |
+| --------------------------------- | ----------- | --------- |
+| clone                             | commit      | add       |
+| init                              | switch      | clean     |
+| log                               | push        | diff      |
+| status                            | pull        | reset     |
+| [worktree](git.worktrees.md)      | fetch       | restore   |
+| config                            | tag         | stash     |
+| remote                            | revert      | blame     |
+| branch                            | merge       | rm        |
+| show-branch                       | rebase      | mv        |
+|                                   | cherry-pick | difftool  |
+|                                   | revert      | apply     |
+|                                   | checkout    |           |
+|                                   |             |           |
+
+Full list of git commands: <https://git-scm.com/docs>
+
+Useless commands (for me):
+
+| Name      | Reason                                                       |
+| --------- | ------------------------------------------------------------ |
+| submodule | Use packaging and package managers and avoid a world of pain |
+|           |                                                              |
 
 ## Git global aliases
-```
-git config --global alias.log1 'log --oneline --graph'
-git config --global alias.status1 'status -b -s'
+
+```text
+> git config --global alias.log1 'log --oneline --graph'
+> git config --global alias.status1 'status -b -s'
 ```
 
 ## List all existing aliases
-```
-git config --get-regexp alias
+
+```text
+> git config --get-regexp alias
 ```
