@@ -29,9 +29,9 @@ similar, and it makes it much easier to compare
 ```text
 > git worktree add main main
 > git worktree add release release
-> git worktree add feature1 feature/feature1
-> git worktree add feature2 feature/feature2
-> git worktree add bugfix3 bugfix/bugfix3
+> git worktree add fix1 feature/fix1
+> git worktree add fix2 feature/fix2
+> git worktree add fix3 bugfix/fix3
 ```
 
 This is a great way to create clean work branches for code that is never to be
@@ -44,9 +44,9 @@ and pushed.
 ```text
 > git worktree remove main
 > git worktree remove release
-> git worktree remove feature1
-> git worktree remove feature2
-> git worktree remove bugfix3
+> git worktree remove fix1
+> git worktree remove fix2
+> git worktree remove fix3
 > git switch main
 ```
 
