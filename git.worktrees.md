@@ -22,7 +22,4 @@ as I never have same name for features or bugfixes or similar, and it makes it m
 > git worktree add feature2 feature/feature2
 ```
 
-
-
-
-
+This is a great way to create clean work branches for code that is never to be merged to main branch (I prefix them with scratch/username usually, but scratch branches can also be branched from main or other branches).
