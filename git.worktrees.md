@@ -11,8 +11,6 @@ that everything you need has been committed and pushed
 ```text
 > git switch --orphan root
 > git clean -f -x -d
-> git commit --allow-empty -m "Initial commit on orphan branch" 
-> git push -u origin root
 ```
 
 If you want to do this on several machines (or local repos), you might as well have the orphaned root available in the remote repo, but there is no need for it.
