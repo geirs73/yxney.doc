@@ -74,6 +74,14 @@ List all branches local and remote:
 > git branch -a
 ```
 
+Delete branches locally and remotely. If you have done a pull request on github or similar, you need to use the -D flag instead of -d.
+
+```text
+> git branch -d <branchname>
+> git branch -D <branchname>   -- typically after a PR
+> git push origin -d <branchname>
+```
+
 ## Merging branches
 
 Cancel merge:
