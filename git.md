@@ -54,6 +54,12 @@ Create local branch from current branch:
 > git switch -c <branchname>
 ```
 
+Create local branch from origin main branch as start-point but do not track it (push -u later)
+```text
+> git switch --no-track -c <branchname> origin/main
+```
+This one is great for creating new feature branch on a worktree feature branch location where you work with your current feature branches (if you have a main branch checked out in parallel somewhere else using worktree)
+
 Switch between two latest branches:
 
 ```text
