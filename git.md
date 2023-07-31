@@ -96,6 +96,12 @@ Cancel merge:
 > git merge --abort
 ```
 
+Continue merge after resolving (you may want to edit commit message):
+
+```text
+git merge --continue --no-edit
+```
+
 ## Tagging
 
 Tag current commit on branch in work area:
