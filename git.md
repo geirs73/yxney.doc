@@ -126,7 +126,7 @@ Get remote tags:
 Delete remote tags matching a pattern with Powershell (requires getting them locally first):
 
 ```powershell
-(git tag --list) | Select-String -Pattern 'v.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Output "git push --delete origin $str") } | Out-File .\delete-tags.ps1
+(git tag --list) | Select-String -Pattern '^PREFIX.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Output "git push origin :refs/tags/$str") } | Out-File .\delete-tags.ps1
 ```
 This will only print the statements, you need to change code to do real work. Or put it in a notepad and save as a script.
 
