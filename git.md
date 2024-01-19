@@ -123,6 +123,7 @@ Delete remote tags matching a pattern with Powershell (DANGER):
 ```powershell
 (git tags) | Select-String -Pattern 'v.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Host "git push --delete origin $str") }
 ```
+This will only print the statements, you need to change code to do real work. Or put it in a notepad and save as a script.
 
 Prune tags deleted on remote:
 ```text
