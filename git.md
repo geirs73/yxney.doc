@@ -118,6 +118,18 @@ Push tags to origin:
 > git push --tags
 ```
 
+Delete remote tags matching a pattern with Powershell (DANGER):
+
+```powershell
+(git tags) | Select-String -Pattern 'v.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Host "git push --delete origin $str") }
+```
+
+Prune tags deleted on remote:
+```text
+> git fetch  --prune --prune-tags
+```
+
+
 ## Stashing
 
 Stash everything, e.g. before a pull.
