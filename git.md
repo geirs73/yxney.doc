@@ -118,10 +118,15 @@ Push tags to origin:
 > git push --tags
 ```
 
-Delete remote tags matching a pattern with Powershell (DANGER):
+Get remote tags:
+```text
+> git fetch --all --tags
+```
+
+Delete remote tags matching a pattern with Powershell (requires getting them locally first):
 
 ```powershell
-(git tags) | Select-String -Pattern 'v.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Host "git push --delete origin $str") }
+(git tag --list) | Select-String -Pattern 'v.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Output "git push --delete origin $str") } | Out-File .\delete-tags.ps1
 ```
 This will only print the statements, you need to change code to do real work. Or put it in a notepad and save as a script.
 
