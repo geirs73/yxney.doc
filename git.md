@@ -166,6 +166,13 @@ Example (Windows cmd/powershell):
 > git switch -c scratch/somebackupbranch
 > git push -u backup scratch/somebackupbranch
 ```
+## Repository wide changes
+
+When a remote repository changes its name or URL (moved somewhere):
+
+```text
+> git remote set-url origin <new-url-to-repo>
+```
   
 ## Backup a remote repository locally
 
