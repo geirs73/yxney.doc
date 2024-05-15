@@ -123,10 +123,16 @@ Get remote tags:
 > git fetch --all --tags
 ```
 
-Delete remote tags matching a pattern with Powershell (requires getting them locally first):
+Delete local tags matching a PATTERN with Powershell
 
 ```powershell
-(git tag --list) | Select-String -Pattern '^PREFIX.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Output "git push origin :refs/tags/$str") } | Out-File .\delete-tags.ps1
+(git tag --list) | Select-String -Pattern '^PATTERN.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Output "git tag -d '$str'") } | Out-File .\delete-tags.ps1
+```
+
+Delete remote tags matching a PATTERN with Powershell (requires getting them locally first):
+
+```powershell
+(git tag --list) | Select-String -Pattern '^PREFIX.*' | ForEach-Object { [string]$str = $_; $str = $str.Trim(); (Write-Output "git push origin :refs/tags/$str") } | Out-File .\delete-tags-on-remote.ps1
 ```
 This will only print the statements into a script-file that you can edit and then run. This is safer than doing it directly.
 
