@@ -88,6 +88,19 @@ Delete branches locally and remotely. If you have done a pull request on github 
 > git push origin -d <branchname>
 ```
 
+## Rebase remote branch onto local branch
+
+Main branch in this example
+
+Safekeeping local branch pointer just in case...
+
+```text
+> git switch -c safekeep
+> git switch main
+> git pull --rebase origin main
+> git branch -D safekeep
+```
+
 ## Merging branches
 
 Cancel merge:
