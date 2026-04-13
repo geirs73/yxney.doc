@@ -46,6 +46,24 @@ Clean everything, reset everything, both tracked, untracked, ignored, including 
 > git clean -f -x -d
 ```
 
+## Ignoring files
+
+Permanently: In .gitignore
+
+This can cause problems if you forget about it, but you can temporarily ignore changes for a tracked file:
+
+```text
+git update-index --assume-unchanged <filepath>
+```
+
+Stop ignoring changes for a tracked file:
+
+```text
+git update-index --no-assume-unchanged
+```
+
+Typical usecase: A local config file you don't want to risk to check in changes to. But it can come back and bite you if you forget to set it back afterwards.
+
 ## Branching
 
 Create local branch from current branch:
@@ -153,7 +171,6 @@ Prune tags deleted on remote:
 ```text
 > git fetch  --prune --prune-tags
 ```
-
 
 ## Stashing
 
